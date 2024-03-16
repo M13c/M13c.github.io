@@ -1,9 +1,9 @@
 ---
-title: 操作系统
+title: 操作系统笔记
 tags: ['操作系统']
 mathjax: true
 date: 2024-03-15 21:46:17
-categories: CS
+categories: Computer_Science
 excerpt: 操作系统课堂笔记
 ---
 

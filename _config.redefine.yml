@@ -408,14 +408,13 @@ plugins:
     enable: false # Whether to enable
   # Aplayer. See https://github.com/DIYgod/APlayer
   aplayer:
-    enable: false # Whether to enable
-    type: fixed # fixed, mini
+    enable: true # Whether to enable
+    type: mini # fixed, mini
     audios:
-      - name: # audio name
-        artist: # audio artist
-        url: # audio url
-        cover: # audio cover url
-        lrc: # audio cover lrc
+      - name: Things You Said # audio name
+        artist: Cody Fry # audio artist
+        url: https://m701.music.126.net/20240317004451/cb0d36053deb64c2808a54b44c071795/jdyyaac/obj/w5rDlsOJwrLDjj7CmsOj/30417275872/0393/d4d6/a579/226afb0db5b39402e695a7a37e0618d9.m4a # audio url
+        cover: https://p1.music.126.net/Q9OkD_MsN63DXdP86fiB4w==/109951168753316527.jpg?param=34y34 # audio cover
 #      - name: # audio name
 #        artist: # audio artist
 #        url: # audio url
@@ -435,7 +434,7 @@ page_templates:
   # Friend Links page column number
   friends_column: 2
   # Tags page style
-  tags_style: cloud # blur, cloud
+  tags_style: blur # blur, cloud
 # PAGE TEMPLATES <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end
 
 

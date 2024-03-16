@@ -1,8 +1,8 @@
 ---
-title: 凸优化理论
+title: 最优化理论
 tags: ['凸优化']
 date: 2024-03-15 21:00:32
-categories: math
+categories: Math
 excerpt: 最优化理论课堂笔记
 mathjax: true
 ---
@@ -24,7 +24,7 @@ mathjax: true
 
     3. 仿射包（集合）
     
-        $$\pmb{aff}C = \{ \theta_1 x_1+\theta_2 x_2+\dots+\theta_k x_k |x_i \in C , \theta_1+\theta_2+\dots+\theta_k = 1\}$$
+        $\pmb{aff}C = \{ \theta_1 x_1+\theta_2 x_2+\dots+\theta_k x_k |x_i \in C , \theta_1+\theta_2+\dots+\theta_k = 1\} $
         
 + 凸集
     1. 凸集
@@ -38,7 +38,7 @@ mathjax: true
         $\theta_1 x_1+\theta_2 x_2+\dots+\theta_k x_k$，其中$\theta_1+\theta_2+\dots+\theta_k = 1，\theta_i \geq 0$
     3. 凸包
     
-        $$ \pmb{conv}C = \{ \theta_1 x_1+\theta_2 x_2+\dots+\theta_k x_k |x_i \in C ,\theta_i \geq 0, \theta_1+\theta_2+\dots+\theta_k = 1\} $$
+        $ \pmb{conv}C = \{ \theta_1 x_1+\theta_2 x_2+\dots+\theta_k x_k |x_i \in C ,\theta_i \geq 0, \theta_1+\theta_2+\dots+\theta_k = 1\} $
 + 锥
     1. 凸锥
     
@@ -50,29 +50,29 @@ mathjax: true
         
     3. 锥包
     
-        $$\{ \theta_1 x_1+\theta_2 x_2+\dots+\theta_k x_k |x_i \in C ,\theta_i \geq 0, \}$$
+        $\{ \theta_1 x_1+\theta_2 x_2+\dots+\theta_k x_k |x_i \in C ,\theta_i \geq 0, \}$
 
 + 示例
 
     1. 超平面（$hyperplane$）
         
-        $$\{ x|a^Tx=b\}, a\in R^n, a \neq 0, b\in R$$ 
+        $\{ x|a^Tx=b\}, a\in R^n, a \neq 0, b\in R$ 
         
     2. 半空间（$halfspace$）
         
-        $$\{ x|a^Tx \leq b\},a \in R^n, a \neq 0, b\in R$$ 
+        $\{ x|a^Tx \leq b\},a \in R^n, a \neq 0, b\in R$ 
         
     3. 球（$Euclidean \ ball$）
         
-        $$B(x_c, r) = \{x|\parallel x - x_c\parallel_2 \leq r\} = \{x|(x - x_c)^T(x - x_c) \leq r^2\}$$
+        $B(x_c, r) = \{x|\parallel x - x_c\parallel_2 \leq r\} = \{x|(x - x_c)^T(x - x_c) \leq r^2\}$
         
-        $$B(x_c,r) = \{x_c + ru|\parallel u\parallel_2 \leq 1\}$$
+        $B(x_c,r) = \{x_c + ru|\parallel u\parallel_2 \leq 1\}$
         
     4. 椭球（$ellipsoid$）
     
-        $$\varepsilon = \{x|(x - x_c)^TP^{-1}(x - x_c) \leq 1\}$$
+        $\varepsilon = \{x|(x - x_c)^TP^{-1}(x - x_c) \leq 1\}$
         
-        $$\varepsilon = \{ x_c + Au|\parallel u\parallel_2 \leq 1\}\ \ \ A = P^{\frac{1}{2}} $$
+        $\varepsilon = \{ x_c + Au|\parallel u\parallel_2 \leq 1\}\ \ \ A = P^{\frac{1}{2}} $
         
         
 ## 保凸运算
@@ -128,7 +128,7 @@ mathjax: true
     
 + 支撑超平面
 
-    假设$x_0$为集合$C$边界上一点，如果$a \neq 0 $并且对于$\forall x \in C $有$a^Tx \leq a^T x_0,$那么称超平面 $$\{x|a^Tx = a^T x_0\}$$为集合$C$在$x_0$处的超平面
+    假设$x_0$为集合$C$边界上一点，如果$a \neq 0 $并且对于$\forall x \in C $有$a^Tx \leq a^T x_0,$那么称超平面 $\{x|a^Tx = a^T x_0\}$为集合$C$在$x_0$处的超平面
     
 # 凸函数
 
@@ -136,7 +136,7 @@ mathjax: true
 
 + 定义
     
-    $C$是非空凸集，$f: R^n \rightarrow R$定义在C上的函数，如果对$\forall x,y \in C, \alpha \in [0,1],$满足$$\\ f(\alpha x + (1-\alpha )y) \leq af(x) + (1-\alpha)f(y)$$则称$f$为$C$上的凸函数
+    $C$是非空凸集，$f: R^n \rightarrow R$定义在C上的函数，如果对$\forall x,y \in C, \alpha \in [0,1],$满足<br><br><center>$f(\alpha x + (1-\alpha )y) \leq af(x) + (1-\alpha)f(y)$</center><br><br>则称$f$为$C$上的凸函数
     
 + 凹函数
     
