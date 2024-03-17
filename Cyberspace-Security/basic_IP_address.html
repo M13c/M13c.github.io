@@ -13,18 +13,26 @@
     
     <!--- Seo Part-->
     
-    <link rel="canonical" href="http://m13c.top/tags/操作系统/"/>
+    <link rel="canonical" href="http://m13c.top/cyberspace-security/basic_ip_address.html"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
-        <meta property="og:type" content="website">
-<meta property="og:title" content="M13c&#39;s blogs">
-<meta property="og:url" content="http://m13c.top/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+        <meta name="description" content="b站千峰课程笔记day02">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网络安全基础知识-IP地址">
+<meta property="og:url" content="http://m13c.top/Cyberspace-Security/basic_IP_address">
 <meta property="og:site_name" content="M13c&#39;s blogs">
+<meta property="og:description" content="b站千峰课程笔记day02">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://m13c.top/Cyberspace-Security/basic_IP_address/1.png">
+<meta property="og:image" content="http://m13c.top/Cyberspace-Security/basic_IP_address/2.png">
+<meta property="article:published_time" content="2024-03-16T14:50:33.000Z">
+<meta property="article:modified_time" content="2024-03-17T05:49:26.280Z">
 <meta property="article:author" content="M13c">
+<meta property="article:tag" content="IP">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://m13c.top/Cyberspace-Security/basic_IP_address/1.png">
     
     
     <!--- Icon Part-->
@@ -36,7 +44,7 @@
     
     <title>
         
-            标签: 操作系统 -
+            网络安全基础知识-IP地址 -
         
         M13c&#39;s blogs
     </title>
@@ -246,7 +254,119 @@
     
     
     
-<meta name="generator" content="Hexo 7.1.1"></head>
+<meta name="generator" content="Hexo 7.1.1"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
 
 
 <body>
@@ -413,46 +533,311 @@
             <div class="main-content">
 
                 
-                    <div class="tag-container">
-	<div class="tag-name">
-		<i class="fa-solid fa-tag"></i>&nbsp;操作系统
-	</div>
-	<div class="tag-post-list">
-		
+                    <div class="post-page-container flex relative justify-between box-border w-full h-full">
+    <div class="article-content-container">
 
-<div class="archive-list-container">
-    
-        <section class="archive-item mb-spacing-unit last:mb-0">
-            <div class="archive-item-header flex flex-row items-center mb-2">
-                <span class="archive-year font-semibold text-3xl mr-2">2024</span>
-                <span class="archive-year-post-count text-xs md:text-sm font-bold rounded-small bg-third-background-color py-[2px] px-[10px] border border-border-color">1</span>
+        <div class="article-title relative w-full">
+            
+                <div class="w-full flex items-center pt-6 justify-start">
+                    <h1 class="article-title-regular text-second-text-color text-4xl md:text-6xl font-bold px-2 sm:px-6 md:px-8 py-3">网络安全基础知识-IP地址</h1>
+                </div>
+            
             </div>
-            <ul class="article-list pl-0 md:pl-8 text-lg leading-[1.5]">
-              
+
+        
+            <div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+                <div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+                    <img src="/images/m13c-avatar.webp">
+                </div>
+                <div class="info flex flex-col justify-between">
+                    <div class="author flex items-center">
+                        <span class="name text-default-text-color text-lg font-semibold">M13c</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2024-03-16 22:50:33</span>
+        <span class="mobile">2024-03-16 22:50:33</span>
+        <span class="hover-info">创建</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2024-03-17 13:49:26</span>
+            <span class="mobile">2024-03-17 13:49:26</span>
+            <span class="hover-info">更新</span>
+        </span>
+    
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
                 
                     
-                    <li class="article-item space-y-2 px-6 pt-10 pb-2 text-xl relative border-l-2 border-border-color" date-is='03-15'>
+                        
+                        <li>
+                            <a href="/categories/Cyberspace-Security/">Cyberspace_Security</a>&nbsp;
+                        </li>
+                    
+                    
                 
-                    
-                        <a href="/Computer-Science/OS" class="block overflow-hidden w-fit">
-                            <span class="article-title mb-0.5 text-2xl">操作系统笔记</span>
-                        </a>
-                    
-              
             </ul>
-        </section>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/IP/">IP</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
     
 </div>
 
-	</div>
+                    </div>
+                </div>
+            </div>
+        
+
+        
+
+
+        <div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+            <h3 id="一、简单局域网的构成"><a href="#一、简单局域网的构成" class="headerlink" title="一、简单局域网的构成"></a>一、简单局域网的构成</h3><img lazyload="" src="/images/loading.svg" data-src="/Cyberspace-Security/basic_IP_address/1.png" class="">
+<blockquote>
+<p>局域网：一般称为内网</p>
+<p>简单局域网构成：交换机、网线、PC（终端）</p>
+<p>交换机：组建内网（内网通信）（插口多）</p>
+</blockquote>
+<h3 id="二、IP地址"><a href="#二、IP地址" class="headerlink" title="二、IP地址"></a>二、IP地址</h3><p>X.X.X.X 0-255</p>
+<h3 id="三、子网掩码"><a href="#三、子网掩码" class="headerlink" title="三、子网掩码"></a>三、子网掩码</h3><p><strong>局域网通信规则</strong>：在同一个局域网中，所有的IP必须在同一网段才可通信</p>
+<p><strong>IP地址构成</strong>：网络位+主机名</p>
+<p><strong>子网掩码</strong>：确定IP的网络位</p>
+<p><strong>如何确定</strong>：与1对应的IP为网络位，与0对应的为主机位</p>
+<blockquote>
+<p>255.0.0.0</p>
+<p>255.255.0.0</p>
+<p>255.255.255.0</p>
+<p>每个IP必须有一个子网掩码</p>
+</blockquote>
+<h3 id="四、IP地址详解"><a href="#四、IP地址详解" class="headerlink" title="四、IP地址详解"></a>四、IP地址详解</h3><p>国际标准组织ISO定义地址分类：五类地址（以ip地址的第一位进行区分）</p>
+<blockquote>
+<p>A类：1-126 默认子网掩码：255.0.0.0</p>
+<p>B类：128-191 默认子网掩码：255.255.0.0</p>
+<p>C类：192-223 默认子网掩码：255.255.255.0</p>
+<p>D类：224-239 组播地址</p>
+<p>E类：240.254 科研使用</p>
+</blockquote>
+<p>如：10.1.1.1属于A类；192.168.1.1属于C类<br>
+  <div class="note-large 注意">
+    <div class="notel-title rounded-t-lg p-3 font-bold text-lg flex flex-row gap-2 items-center">
+      <p>注意</p>
+
+    </div>
+    <div class="notel-content">
+      <ol>
+<li><p>当主机位全部置0代表网段，主机位全部置1代表该网段的广播地址</p>
+</li>
+<li><p>127.0.0.1 是回环地址,即指向自己的地址</p>
+</li>
+</ol>
+
+    </div>
+  </div></p>
+<h3 id="五、网关"><a href="#五、网关" class="headerlink" title="五、网关"></a>五、网关</h3><p>网关：一个网络的出口，Gateway=GW，一般网关是在路由器上</p>
+<p>路由器：可用于连接内外网的设备。</p>
+
+  <div class="note-large 注意">
+    <div class="notel-title rounded-t-lg p-3 font-bold text-lg flex flex-row gap-2 items-center">
+      <p>注意</p>
+
+    </div>
+    <div class="notel-content">
+      <p>对于交换机来说，网关也是一个设备，即网关也有IP地址，一般是第一个IP，或者最后一个</p>
+
+    </div>
+  </div>
+<h3 id="六、DNS"><a href="#六、DNS" class="headerlink" title="六、DNS"></a>六、DNS</h3><p><strong>DNS：Domain Name Service</strong> 域名服务</p>
+<img lazyload="" src="/images/loading.svg" data-src="/Cyberspace-Security/basic_IP_address/2.png" class="">
+<ol>
+<li><ul>
+<li>作用：提供域名解析服务。</li>
+<li>域名解析顺序：本地DNS缓存—本地hosts解析文件—DNS域名解析服务器</li>
+</ul>
+</li>
+<li><p>通用DNS服务器：</p>
+<p> 114.114.114.114（中国 ）或者8.8.8.8（美国谷歌）</p>
+</li>
+</ol>
+<h3 id="七、实验：两台主机相互ping通信"><a href="#七、实验：两台主机相互ping通信" class="headerlink" title="七、实验：两台主机相互ping通信"></a>七、实验：两台主机相互ping通信</h3><blockquote>
+<p>设置电脑适配器在net1同一网关</p>
+<p>winxp-1 ip:10.1.1.1 子网掩码：255.255.255.0</p>
+<p>win2003-1 ip:10.1.1.1 子网掩码：255.255.255.0</p>
+<p>操作：cmd—ping 10.1.1.2 子网内相互通信</p>
+</blockquote>
+<h3 id="八、网络测试命令"><a href="#八、网络测试命令" class="headerlink" title="八、网络测试命令"></a>八、网络测试命令</h3><ol>
+<li>查看IP</li>
+</ol>
+<blockquote>
+<p>ipconfig        #IP、子网掩码、网关</p>
+<p>ipconfig /all   #查看详细信息，DNS IP</p>
+</blockquote>
+<ol>
+<li>测试网络速度</li>
+</ol>
+<blockquote>
+<p>ping 目标IP               #测试网络</p>
+<p>ping -t 目标IP            #一直ping</p>
+<p>ping -n 数字 目标IP         #修改ping包数量</p>
+<p>ping -l 数字 目标IP         #修改ping包的大小，默认32字节</p>
+</blockquote>
+
+  <div class="note-large 注意">
+    <div class="notel-title rounded-t-lg p-3 font-bold text-lg flex flex-row gap-2 items-center">
+      <p>注意</p>
+
+    </div>
+    <div class="notel-content">
+      <p>ping不通，可能对方不在线，或者开着防火墙</p>
+
+    </div>
+  </div>
+<ol>
+<li>手工解析域名</li>
+</ol>
+<blockquote>
+<p>nslookup baidu.com(域名)  #手工解析域名IP</p>
+</blockquote>
+
+  <div class="note-large blue">
+    <div class="notel-title rounded-t-lg p-3 font-bold text-lg flex flex-row gap-2 items-center">
+      <p>视频地址</p>
+
+    </div>
+    <div class="notel-content">
+      <p><a class="link" target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Lf4y1t7Mc/?p=8&amp;vd_source=f6750243303df70ef9861eee3a2e11e8">视频地址 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+
+    </div>
+  </div>
+        </div>
+
+        
+            <div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li><strong>标题:</strong> 网络安全基础知识-IP地址</li>
+        <li><strong>作者:</strong> M13c</li>
+        <li><strong>创建于
+                :</strong> 2024-03-16 22:50:33</li>
+        
+            <li>
+                <strong>更新于
+                    :</strong> 2024-03-17 13:49:26
+            </li>
+        
+        <li>
+            <strong>链接:</strong> https://m13c.top/Cyberspace-Security/basic_IP_address.html
+        </li>
+        <li>
+            <strong>
+                版权声明:
+            </strong>
+            
+
+            
+                版权所有 &#169 M13c，禁止转载。
+            
+        </li>
+    </ul>
 </div>
 
-<div class="tag-paginator">
-	<div class="paginator">
-    <span class="page-number current">1</span>
+            </div>
+        
+
+        
+            <ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="/tags/IP/">#IP</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+
+        
+            <div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+                
+                    <div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+                        <a class="prev"
+                        rel="prev"
+                        href="/Cyberspace-Security/basic_dos&amp;bat&amp;user"
+                        >
+                            <span class="left arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">网络安全基础知识-dos命令&amp;批处理&amp;用户组</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+                        <a class="next"
+                        rel="next"
+                        href="/Web/html_note02"
+                        >
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">html+css学习笔记 Day02：列表、表格、表单</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+
+        
+    </div>
+
+    
+        <div class="toc-content-container">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div class="toc-title">此页目录</div>
+        <div class="page-title">网络安全基础知识-IP地址</div>
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E7%AE%80%E5%8D%95%E5%B1%80%E5%9F%9F%E7%BD%91%E7%9A%84%E6%9E%84%E6%88%90"><span class="nav-text">一、简单局域网的构成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81IP%E5%9C%B0%E5%9D%80"><span class="nav-text">二、IP地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%AD%90%E7%BD%91%E6%8E%A9%E7%A0%81"><span class="nav-text">三、子网掩码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9B%E3%80%81IP%E5%9C%B0%E5%9D%80%E8%AF%A6%E8%A7%A3"><span class="nav-text">四、IP地址详解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E7%BD%91%E5%85%B3"><span class="nav-text">五、网关</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AD%E3%80%81DNS"><span class="nav-text">六、DNS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%83%E3%80%81%E5%AE%9E%E9%AA%8C%EF%BC%9A%E4%B8%A4%E5%8F%B0%E4%B8%BB%E6%9C%BA%E7%9B%B8%E4%BA%92ping%E9%80%9A%E4%BF%A1"><span class="nav-text">七、实验：两台主机相互ping通信</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AB%E3%80%81%E7%BD%91%E7%BB%9C%E6%B5%8B%E8%AF%95%E5%91%BD%E4%BB%A4"><span class="nav-text">八、网络测试命令</span></a></li></ol>
+
+    </div>
+</div>
+        </div>
+    
 </div>
 
-</div>
 
 
                 
@@ -535,6 +920,23 @@
         </div>
     </div>
 
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="article-tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="right-bottom-tools page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
     
 
     <div class="right-side-tools-container">

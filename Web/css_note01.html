@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    
+    <meta name="author" content="M13c">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="http://m13c.top/web/css_note01.html"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+        <meta name="description" content="b站黑马程序员html+css Day03课程笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="html+css学习笔记 Day03-CSS基础">
+<meta property="og:url" content="http://m13c.top/Web/css_note01">
+<meta property="og:site_name" content="M13c&#39;s blogs">
+<meta property="og:description" content="b站黑马程序员html+css Day03课程笔记">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://m13c.top/Web/css_note01/1680317584651.png">
+<meta property="og:image" content="http://m13c.top/Web/css_note01/1680317605797.png">
+<meta property="og:image" content="http://m13c.top/Web/css_note01/1680317770048.png">
+<meta property="og:image" content="http://m13c.top/Web/css_note01/1680318278244.png">
+<meta property="og:image" content="http://m13c.top/Web/css_note01/1680318326214.png">
+<meta property="og:image" content="http://m13c.top/Web/css_note01/1680318461130.png">
+<meta property="og:image" content="http://m13c.top/Web/css_note01/1680318548558.png">
+<meta property="og:image" content="http://m13c.top/Web/css_note01/1680318569852.png">
+<meta property="og:image" content="http://m13c.top/Web/css_note01/1680318624523.png">
+<meta property="og:image" content="http://m13c.top/Web/css_note01/1680318667113.png">
+<meta property="og:image" content="http://m13c.top/Web/css_note01/1680318751246.png">
+<meta property="article:published_time" content="2024-03-17T14:36:34.000Z">
+<meta property="article:modified_time" content="2024-03-17T15:03:00.012Z">
+<meta property="article:author" content="M13c">
+<meta property="article:tag" content="CSS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://m13c.top/Web/css_note01/1680317584651.png">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="/images/m13c-favicon.svg" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/m13c-favicon.svg">
+    <meta name="theme-color" content="#A31F34">
+    <link rel="shortcut icon" href="/images/m13c-favicon.svg">
+    <!--- Page Info-->
+    
+    <title>
+        
+            html+css学习笔记 Day03-CSS基础 -
+        
+        M13c&#39;s blogs
+    </title>
+
+    
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
+
+
+    <!--- Inject Part-->
+    
+
+    
+        <style>
+    :root {
+        --preloader-background-color: #fff;
+        --preloader-text-color: #000;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --preloader-background-color: #202124;
+            --preloader-text-color: #fff;
+        }
+    }
+
+    @media (prefers-color-scheme: light) {
+        :root {
+            --preloader-background-color: #fff;
+            --preloader-text-color: #000;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .ml13 {
+            font-size: 2.6rem !important; /* Adjust this value as needed */
+        }
+    }
+
+    .preloader {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem; /* Tailwind 'gap-4' is 1rem */
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        padding: 12px;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh; /* 'h-screen' is 100% of the viewport height */
+        background-color: var(--preloader-background-color);
+        z-index: 1100; /* 'z-[1100]' sets the z-index */
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .ml13 {
+        font-size: 3.2rem;
+        /* text-transform: uppercase; */
+        color: var(--preloader-text-color);
+        letter-spacing: -1px;
+        font-weight: 500;
+        font-family: 'Chillax-Variable', sans-serif;
+        text-align: center;
+    }
+
+    .ml13 .word {
+        display: inline-flex;
+        flex-wrap: wrap;
+        white-space: nowrap;
+    }
+
+    .ml13 .letter {
+        display: inline-block;
+        line-height: 1em;
+    }
+</style>
+
+<div class="preloader">
+    
+<script src="/js/libs/anime.min.js"></script>
+
+    <h1 class="ml13">
+        M13c&#39;s blogs
+    </h1>
+    <script>
+        var textWrapper = document.querySelector('.ml13');
+        // Split text into words
+        var words = textWrapper.textContent.trim().split(' ');
+
+        // Clear the existing content
+        textWrapper.innerHTML = '';
+
+        // Wrap each word and its letters in spans
+        words.forEach(function(word) {
+            var wordSpan = document.createElement('span');
+            wordSpan.classList.add('word');
+            wordSpan.innerHTML = word.replace(/\S/g, "<span class='letter'>$&</span>");
+            textWrapper.appendChild(wordSpan);
+            textWrapper.appendChild(document.createTextNode(' ')); // Add space between words
+        });
+
+
+        anime.timeline({loop: true})
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [100,0],
+                translateZ: 0,
+                opacity: [0,1],
+                easing: "easeOutExpo",
+                duration: 1400,
+                delay: (el, i) => 300 + 30 * i
+            }).add({
+            targets: '.ml13 .letter',
+            translateY: [0,-100],
+            opacity: [1,0],
+            easing: "easeInExpo",
+            duration: 1200,
+            delay: (el, i) => 100 + 30 * i
+        });
+
+        let themeStatus = JSON.parse(localStorage.getItem('REDEFINE-THEME-STATUS'))?.isDark;
+
+        // If the theme status is not found in local storage, check the preferred color scheme
+        if (themeStatus === undefined || themeStatus === null) {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                themeStatus = 'dark';
+            } else {
+                themeStatus = 'light';
+            }
+        }
+
+        // Now you can use the themeStatus variable in your code
+        if (themeStatus) {
+            document.documentElement.style.setProperty('--preloader-background-color', '#202124');
+            document.documentElement.style.setProperty('--preloader-text-color', '#fff');
+        } else {
+            document.documentElement.style.setProperty('--preloader-background-color', '#fff');
+            document.documentElement.style.setProperty('--preloader-text-color', '#000');
+        }
+
+        window.addEventListener('load', function () {
+            hidePreloaderAfterTimeout(1000); // Hide after 1000 milliseconds once the window has loaded
+        });
+
+        // Backup failsafe: Hide preloader after a maximum of 5000 milliseconds, regardless of the window load event
+        hidePreloaderAfterTimeout(5000);
+
+        function hidePreloaderAfterTimeout(delay) {
+            setTimeout(function () {
+                var preloader = document.querySelector('.preloader');
+                preloader.style.opacity = '0';
+                setTimeout(function () {
+                    preloader.style.display = 'none';
+                }, 200);
+            }, delay);
+        }
+    </script>
+</div>
+    
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+        
+<link rel="stylesheet" href="/assets/build/styles.css">
+
+    
+
+    
+<link rel="stylesheet" href="/fonts/fonts.css">
+
+    
+<link rel="stylesheet" href="/fonts/Satoshi/satoshi.css">
+
+    <!--- Font Part-->
+    
+    
+    
+    
+
+
+    <script id="hexo-configurations">
+    window.config = {"hostname":"m13c.top","root":"/","language":"zh-CN"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"title_alignment":"left","headings_top_spacing":{"h1":"5rem","h2":"4rem","h3":"2.8rem","h4":"2.5rem","h5":"2.2rem","h6":"2rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":false,"auto":false,"list":["MVP++"]},"code_block":{"copy":true,"style":"mac","font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":false},"copyright":{"enable":"ture","default":"all_rights_reserved"},"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":true,"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/m13c-wallper.webp","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"M13c","subtitle":{"text":["VENI VIDI VICI"],"hitokoto":{"enable":false,"api":"https://v1.hitokoto.cn"},"typing_speed":50,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":false,"style":"default","links":{"github":null,"instagram":null,"zhihu":null,"twitter":null,"email":null},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":true,"type":"mini","audios":[{"name":"Things You Said","artist":"Cody Fry","url":"/music/Things you said.mp3","cover":"https://p1.music.126.net/Q9OkD_MsN63DXdP86fiB4w==/109951168753316527.jpg?param=34y34","lrc":null}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.6.1","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Archives":{"path":"/archives","icon":"fa-regular fa-archive"}},"search":{"enable":false,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":null,"show_on_mobile":true,"links":null},"article_date_format":"MMM D, YYYY","categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2024/3/13 00:00:00"};
+    window.lang_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+    window.data = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
+    
+    
+    
+    
+<meta name="generator" content="Hexo 7.1.1"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+<!--        <span class="swup-progress-icon">-->
+<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+<!--        </span>-->
+    
+</div>
+
+
+<main class="page-container" id="swup">
+
+    
+
+    <div class="main-content-container">
+
+
+        <div class="main-content-header">
+            <header class="navbar-container px-6 md:px-12">
+
+    <div class="navbar-content ">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                M13c&#39;s blogs
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    首页
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/archives"
+                                        >
+                                    <i class="fa-regular fa-archive fa-fw"></i>
+                                    归档
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile sheet -->
+    <div class="navbar-drawer h-screen w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/"
+                        >
+                            <span>
+                                首页
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/archives"
+                        >
+                            <span>
+                                归档
+                            </span>
+                            
+                                <i class="fa-regular fa-archive fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+
+            
+            
+        </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">8</div>
+        <div class="label text-third-text-color text-sm">标签</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">4</div>
+        <div class="label text-third-text-color text-sm">分类</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">7</div>
+        <div class="label text-third-text-color text-sm">文章</div>
+    </a>
+</div>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="main-content-body">
+
+            
+
+            <div class="main-content">
+
+                
+                    <div class="post-page-container flex relative justify-between box-border w-full h-full">
+    <div class="article-content-container">
+
+        <div class="article-title relative w-full">
+            
+                <div class="w-full flex items-center pt-6 justify-start">
+                    <h1 class="article-title-regular text-second-text-color text-4xl md:text-6xl font-bold px-2 sm:px-6 md:px-8 py-3">html+css学习笔记 Day03-CSS基础</h1>
+                </div>
+            
+            </div>
+
+        
+            <div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+                <div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+                    <img src="/images/m13c-avatar.webp">
+                </div>
+                <div class="info flex flex-col justify-between">
+                    <div class="author flex items-center">
+                        <span class="name text-default-text-color text-lg font-semibold">M13c</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2024-03-17 22:36:34</span>
+        <span class="mobile">2024-03-17 22:36:34</span>
+        <span class="hover-info">创建</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2024-03-17 23:03</span>
+            <span class="mobile">2024-03-17 23:03</span>
+            <span class="hover-info">更新</span>
+        </span>
+    
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/Web/">Web</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/CSS/">CSS</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        
+
+
+        <div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+            <blockquote>
+<p>目标：掌握 CSS 属性基本写法，能够使用文字相关属性美化文章页。</p>
+</blockquote>
+<h2 id="01-CSS初体验"><a href="#01-CSS初体验" class="headerlink" title="01-CSS初体验"></a>01-CSS初体验</h2><p>层叠样式表 (Cascading Style Sheets，缩写为 CSS），是一种 <strong>样式表</strong> 语言，用来<strong>描述 HTML 文档的呈现</strong>（<strong>美化内容</strong>）。</p>
+<p>书写位置：<strong>title 标签下方添加 style 双标签，style 标签里面书写 CSS 代码</strong>。</p>
+<div class="highlight-container" data-rel="Html"><figure class="iseeu highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>CSS 初体验<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">  <span class="comment">/* 选择器 { } */</span></span></span><br><span class="line"><span class="language-css">  <span class="selector-tag">p</span> {</span></span><br><span class="line"><span class="language-css">    <span class="comment">/* CSS 属性 */</span></span></span><br><span class="line"><span class="language-css">    <span class="attribute">color</span>: red;</span></span><br><span class="line"><span class="language-css">  }</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>体验 CSS<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+<blockquote>
+<p>提示：属性名和属性值成对出现 → 键值对。 </p>
+</blockquote>
+<h2 id="02-CSS引入方式"><a href="#02-CSS引入方式" class="headerlink" title="02-CSS引入方式"></a>02-CSS引入方式</h2><ul>
+<li><strong>内部</strong>样式表：学习使用<ul>
+<li>CSS 代码写在 style 标签里面</li>
+</ul>
+</li>
+<li><strong>外部</strong>样式表：开发使用<ul>
+<li>CSS 代码写在单独的 CSS 文件中（<strong>.css</strong>）</li>
+<li>在 HTML 使用 link 标签引入</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-container" data-rel="Html"><figure class="iseeu highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"./my.css"</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+<ul>
+<li><strong>行内</strong>样式：配合 JavaScript 使用<ul>
+<li>CSS 写在标签的 style 属性值里</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-container" data-rel="Html"><figure class="iseeu highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"color: red; font-size:20px;"</span>&gt;</span>这是 div 标签<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+<h2 id="03-选择器"><a href="#03-选择器" class="headerlink" title="03-选择器"></a>03-选择器</h2><p>作用：<strong>查找标签</strong>，设置样式。 </p>
+<h3 id="标签选择器"><a href="#标签选择器" class="headerlink" title="标签选择器"></a>标签选择器</h3><p>标签选择器：使用<strong>标签名</strong>作为选择器 → 选中<strong>同名标签设置相同的样式</strong>。</p>
+<p>例如：p, h1, div, a, img……</p>
+<div class="highlight-container" data-rel="Html"><figure class="iseeu highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">  <span class="selector-tag">p</span> {</span></span><br><span class="line"><span class="language-css">    <span class="attribute">color</span>: red;</span></span><br><span class="line"><span class="language-css">  }</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+<blockquote>
+<p>注意：标签选择器<strong>无法差异化</strong>同名标签的显示效果。</p>
+</blockquote>
+<h3 id="类选择器"><a href="#类选择器" class="headerlink" title="类选择器"></a>类选择器</h3><p>作用：查找标签，<strong>差异化</strong>设置标签的显示效果。</p>
+<p>步骤：</p>
+<ul>
+<li>定义类选择器 → <strong>.类名</strong></li>
+<li>使用类选择器 → 标签添加 <strong>class=”类名”</strong></li>
+</ul>
+<div class="highlight-container" data-rel="Html"><figure class="iseeu highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">  <span class="comment">/* 定义类选择器 */</span></span></span><br><span class="line"><span class="language-css">  <span class="selector-class">.red</span> {</span></span><br><span class="line"><span class="language-css">    <span class="attribute">color</span>: red;</span></span><br><span class="line"><span class="language-css">  }</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 使用类选择器 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"red"</span>&gt;</span>这是 div 标签<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"red size"</span>&gt;</span>div 标签<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+<p>注意：</p>
+<ul>
+<li>类名<strong>自定义</strong>，不要用纯数字或中文，尽量用英文命名</li>
+<li>一个类选择器<strong>可以供多个标签使用</strong></li>
+<li><strong>一个标签可以使用多个类名</strong>，类名之间用<strong>空格</strong>隔开</li>
+</ul>
+<blockquote>
+<p>开发习惯：类名见名知意，多个单词可以用 - 连接，例如：news-hd。</p>
+</blockquote>
+<h3 id="id选择器"><a href="#id选择器" class="headerlink" title="id选择器"></a>id选择器</h3><p>作用：查找标签，差异化设置标签的显示效果。</p>
+<p>场景：id 选择器一般<strong>配合 JavaScript</strong> 使用，很少用来设置 CSS 样式</p>
+<p>步骤：</p>
+<ul>
+<li>定义 id 选择器 → #id名</li>
+<li>使用 id 选择器 → 标签添加 id= “id名”</li>
+</ul>
+<div class="highlight-container" data-rel="Html"><figure class="iseeu highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">  <span class="comment">/* 定义 id 选择器 */</span></span></span><br><span class="line"><span class="language-css">  <span class="selector-id">#red</span> {</span></span><br><span class="line"><span class="language-css">    <span class="attribute">color</span>: red;</span></span><br><span class="line"><span class="language-css">  }</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 使用 id 选择器 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"red"</span>&gt;</span>这是 div 标签<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+<blockquote>
+<p>规则：同一个 id 选择器在一个页面只能使用一次。</p>
+</blockquote>
+<h3 id="通配符选择器"><a href="#通配符选择器" class="headerlink" title="通配符选择器"></a>通配符选择器</h3><p>作用：查找页面<strong>所有</strong>标签，设置相同样式。</p>
+<p>通配符选择器： <strong>*，不需要调用</strong>，浏览器自动查找页面所有标签，设置相同的样式</p>
+<div class="highlight-container" data-rel="Css"><figure class="iseeu highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">* {</span><br><span class="line">  <span class="attribute">color</span>: red;</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+<blockquote>
+<p>经验：通配符选择器可以用于<strong>清除标签的默认样式</strong>，例如：标签默认的外边距、内边距。</p>
+</blockquote>
+<img lazyload="" src="/images/loading.svg" data-src="/Web/css_note01/1680317584651.png" class="">
+<h2 id="04-盒子尺寸和背景色"><a href="#04-盒子尺寸和背景色" class="headerlink" title="04-盒子尺寸和背景色"></a>04-盒子尺寸和背景色</h2><img lazyload="" src="/images/loading.svg" data-src="/Web/css_note01/1680317605797.png" class="">
+<h2 id="05-文字控制属性"><a href="#05-文字控制属性" class="headerlink" title="05-文字控制属性"></a>05-文字控制属性</h2><h3 id="字体大小"><a href="#字体大小" class="headerlink" title="字体大小"></a>字体大小</h3><ul>
+<li>属性名：<strong>font-size</strong></li>
+<li>属性值：文字尺寸，PC 端网页最常用的单位 <strong>px</strong></li>
+</ul>
+<div class="highlight-container" data-rel="Css"><figure class="iseeu highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span> {</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">30px</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+<blockquote>
+<p>经验：谷歌浏览器默认字号是16px。</p>
+</blockquote>
+<h3 id="字体样式（是否倾斜）"><a href="#字体样式（是否倾斜）" class="headerlink" title="字体样式（是否倾斜）"></a>字体样式（是否倾斜）</h3><p>作用：清除文字默认的倾斜效果</p>
+<p>属性名：<strong>font-style</strong></p>
+<p>属性值</p>
+<ul>
+<li>正常（不倾斜）：<strong>normal</strong> </li>
+<li>倾斜：<strong>italic</strong></li>
+</ul>
+<h3 id="行高"><a href="#行高" class="headerlink" title="行高"></a>行高</h3><p>作用：设置多行文本的间距</p>
+<p>属性名：line-height</p>
+<p>属性值</p>
+<ul>
+<li>数字 + px</li>
+<li>数字（当前标签font-size属性值的倍数）</li>
+</ul>
+<div class="highlight-container" data-rel="Css"><figure class="iseeu highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">line-height</span>: <span class="number">30px</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 当前标签字体大小为16px */</span></span><br><span class="line"><span class="attribute">line-height</span>: <span class="number">2</span>;</span><br></pre></td></tr></table></figure></div>
+<img lazyload="" src="/images/loading.svg" data-src="/Web/css_note01/1680317770048.png" class="">
+<blockquote>
+<p>行高的测量方法：从一行文字的最顶端（最底端）量到下一行文字的最顶端（最底端）。 </p>
+</blockquote>
+<h4 id="单行文字垂直居中"><a href="#单行文字垂直居中" class="headerlink" title="单行文字垂直居中"></a>单行文字垂直居中</h4><p>垂直居中技巧：<strong>行高属性值等于盒子高度属性值</strong></p>
+<p>注意：该技巧适用于单行文字垂直居中效果</p>
+<div class="highlight-container" data-rel="Css"><figure class="iseeu highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> {</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: skyblue;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 注意：只能是单行文字垂直居中 */</span></span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">100px</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+<h3 id="字体族"><a href="#字体族" class="headerlink" title="字体族"></a>字体族</h3><p>属性名：<strong>font-family</strong></p>
+<p>属性值：字体名</p>
+<div class="highlight-container" data-rel="Css"><figure class="iseeu highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">font-family</span>: 楷体;</span><br></pre></td></tr></table></figure></div>
+<blockquote>
+<p>拓展（了解）：font-family属性值可以书写多个字体名，各个字体名用逗号隔开，执行顺序是从左向右依次查找</p>
+<ul>
+<li>font-family 属性最后设置一个字体族名，网页开发建议使用无衬线字体</li>
+</ul>
+</blockquote>
+<img lazyload="" src="/images/loading.svg" data-src="/Web/css_note01/1680318278244.png" class="">
+<div class="highlight-container" data-rel="Css"><figure class="iseeu highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">font-family</span>: Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB, <span class="string">"\5B8B\4F53"</span>, sans-serif;</span><br></pre></td></tr></table></figure></div>
+<h3 id="font复合属性"><a href="#font复合属性" class="headerlink" title="font复合属性"></a>font复合属性</h3><p>使用场景：设置网页文字公共样式 </p>
+<img lazyload="" src="/images/loading.svg" data-src="/Web/css_note01/1680318326214.png" class="">
+<p>复合属性：属性的简写方式，<strong>一个属性对应多个值的写法</strong>，各个属性值之间用<strong>空格</strong>隔开。</p>
+<p><strong>font: 是否倾斜  是否加粗  字号/行高 字体（必须按顺序书写）</strong></p>
+<div class="highlight-container" data-rel="Css"><figure class="iseeu highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> {</span><br><span class="line">  <span class="attribute">font</span>: italic <span class="number">700</span> <span class="number">30px</span>/<span class="number">2</span> 楷体;</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+<blockquote>
+<p>注意：字号和字体值必须书写，否则 font 属性不生效 。</p>
+</blockquote>
+<h3 id="文本缩进"><a href="#文本缩进" class="headerlink" title="文本缩进"></a>文本缩进</h3><p>属性名：<strong>text-indent</strong></p>
+<p>属性值：</p>
+<ul>
+<li>数字 + px</li>
+<li><strong>数字 + em</strong>（推荐：<strong>1em = 当前标签的字号大小</strong>）</li>
+</ul>
+<div class="highlight-container" data-rel="Css"><figure class="iseeu highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span> {</span><br><span class="line">  <span class="attribute">text-indent</span>: <span class="number">2em</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+<h3 id="文本对齐方式"><a href="#文本对齐方式" class="headerlink" title="文本对齐方式"></a>文本对齐方式</h3><p>作用：控制内容水平对齐方式</p>
+<p>属性名：<strong>text-align</strong></p>
+<img lazyload="" src="/images/loading.svg" data-src="/Web/css_note01/1680318461130.png" class="">
+<div class="highlight-container" data-rel="Css"><figure class="iseeu highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">text-align</span>: center;</span><br></pre></td></tr></table></figure></div>
+<blockquote>
+<p>text-align本质是控制内容的对齐方式，属性要设置给内容的父级。 </p>
+</blockquote>
+<div class="highlight-container" data-rel="Html"><figure class="iseeu highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">  <span class="selector-tag">div</span> {</span></span><br><span class="line"><span class="language-css">    <span class="attribute">text-align</span>: center;</span></span><br><span class="line"><span class="language-css">  }</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"./images/1.jpg"</span> <span class="attr">alt</span>=<span class="string">""</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+<h3 id="文本修饰线"><a href="#文本修饰线" class="headerlink" title="文本修饰线"></a>文本修饰线</h3><p>属性名： <strong>text-decoration</strong> </p>
+<img lazyload="" src="/images/loading.svg" data-src="/Web/css_note01/1680318548558.png" class="">
+<h3 id="color-文字颜色"><a href="#color-文字颜色" class="headerlink" title="color 文字颜色"></a>color 文字颜色</h3><img lazyload="" src="/images/loading.svg" data-src="/Web/css_note01/1680318569852.png" class="">
+<blockquote>
+<p>提示：只要属性值为颜色，都可以使用上述四种颜色表示方式，例如：背景色。 </p>
+</blockquote>
+<h2 id="06-调试工具"><a href="#06-调试工具" class="headerlink" title="06-调试工具"></a>06-调试工具</h2><p>作用：检查、调试代码；帮助程序员发现代码问题、解决问题</p>
+<ol>
+<li>打开调试工具</li>
+</ol>
+<ul>
+<li>浏览器窗口内任意位置 / 选中标签 → 鼠标右键 → 检查</li>
+<li>F12</li>
+</ul>
+<ol>
+<li>使用调试工具</li>
+</ol>
+<img lazyload="" src="/images/loading.svg" data-src="/Web/css_note01/1680318624523.png" class="">
+<h2 id="07-综合案例一-新闻详情"><a href="#07-综合案例一-新闻详情" class="headerlink" title="07-综合案例一-新闻详情"></a>07-综合案例一-新闻详情</h2><p>网页制作思路：</p>
+<ol>
+<li>从上到下，先整体再局部</li>
+<li>先标签，再 CSS 美化</li>
+</ol>
+<img lazyload="" src="/images/loading.svg" data-src="/Web/css_note01/1680318667113.png" class="">
+<h3 id="HTML标签"><a href="#HTML标签" class="headerlink" title="HTML标签"></a>HTML标签</h3><div class="highlight-container" data-rel="Html"><figure class="iseeu highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>在希望的田野上 | 湖北秋收开镰 各地多举措保增产增收<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>来源：央视网 | 2222年12月12日 12:12:12<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">strong</span>&gt;</span>央视网消息：<span class="tag">&lt;/<span class="name">strong</span>&gt;</span>眼下，湖北省秋收开镰已有一周多的时间。水稻收割已经超过四成，玉米收割七成。湖北省通过大力推广新品种水稻，建设高标准农田等一系列措施，为秋粮稳产提供有力支撑。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>中稻占据了湖北全年粮食产量的一半以上。在湖北的主产区荆门市，370万亩中稻已经收割四成以上。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"pic"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"./1.jpg"</span> <span class="attr">alt</span>=<span class="string">""</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>王化林说的新品种，是湖北省研发的杂交水稻“华夏香丝”，不仅产量高，还具有抗病、抗倒、抗高温的特性。在荆门漳河镇的一工程示范田内，像“华夏香丝”这样抗旱节水的品种还有20多个，这些水稻新品将在荆门全面推广，确保来年增产增收。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>此外，湖北还大力推进高标准农田建设。截至今年6月，已建成3980万亩高标准农田。目前，湖北全省仍有1800多万亩中稻正在有序收割中，预计10月中旬收割完毕。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+<h3 id="CSS样式"><a href="#CSS样式" class="headerlink" title="CSS样式"></a>CSS样式</h3><div class="highlight-container" data-rel="Html"><figure class="iseeu highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">  <span class="selector-tag">h1</span> {</span></span><br><span class="line"><span class="language-css">    <span class="attribute">text-align</span>: center;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">font-weight</span>: <span class="number">400</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">font-size</span>: <span class="number">30px</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">color</span>: <span class="number">#333</span>;</span></span><br><span class="line"><span class="language-css">  }</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">  <span class="selector-tag">div</span> {</span></span><br><span class="line"><span class="language-css">    <span class="attribute">font-size</span>: <span class="number">14px</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">color</span>: <span class="number">#999</span>;</span></span><br><span class="line"><span class="language-css">  }</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">  <span class="selector-tag">p</span> {</span></span><br><span class="line"><span class="language-css">    <span class="attribute">text-indent</span>: <span class="number">2em</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">font-size</span>: <span class="number">18px</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">color</span>: <span class="number">#333</span>;</span></span><br><span class="line"><span class="language-css">  }</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">  <span class="comment">/* div {</span></span></span><br><span class="line"><span class="comment"><span class="language-css">    text-align: center;</span></span></span><br><span class="line"><span class="comment"><span class="language-css">  } */</span></span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">  <span class="selector-class">.pic</span> {</span></span><br><span class="line"><span class="language-css">    <span class="attribute">text-align</span>: center;</span></span><br><span class="line"><span class="language-css">  }</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+<h2 id="08-综合案例二-CSS简介"><a href="#08-综合案例二-CSS简介" class="headerlink" title="08-综合案例二-CSS简介"></a>08-综合案例二-CSS简介</h2><img lazyload="" src="/images/loading.svg" data-src="/Web/css_note01/1680318751246.png" class="">
+<h3 id="HTML标签-1"><a href="#HTML标签-1" class="headerlink" title="HTML标签"></a>HTML标签</h3><div class="highlight-container" data-rel="Html"><figure class="iseeu highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>CSS（层叠样式表）<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>层叠样式表 (Cascading Style Sheets，缩写为 CSS），是一种 <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>样式表<span class="tag">&lt;/<span class="name">a</span>&gt;</span> 语言，用来描述 HTML 或 XML（包括如 SVG、MathML、XHTML 之类的 XML 分支语言）文档的呈现。CSS 描述了在屏幕、纸质、音频等其它媒体上的元素应该如何被渲染的问题。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">strong</span>&gt;</span>CSS 是开放网络的核心语言之一<span class="tag">&lt;/<span class="name">strong</span>&gt;</span>，由 W3C 规范 实现跨浏览器的标准化。CSS 节省了大量的工作。 样式可以通过定义保存在外部.css 文件中，同时控制多个网页的布局，这意味着开发者不必经历在所有网页上编辑布局的麻烦。CSS 被分为不同等级：CSS1 现已废弃， CSS2.1 是推荐标准， CSS3 分成多个小模块且正在标准化中。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>CSS 介绍 如果你是 Web 开发的新手，请务必阅读我们的 CSS 基础 文章以学习 CSS 的含义和用法。<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>CSS 教程 我们的 CSS 学习区 包含了丰富的教程，它们覆盖了全部基础知识，能使你在 CSS 之路上从初出茅庐到游刃有余。<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>CSS 参考 针对资深 Web 开发者的 <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>详细参考手册<span class="tag">&lt;/<span class="name">a</span>&gt;</span> ，描述了 CSS 的各个属性与概念。<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+<h3 id="CSS样式-1"><a href="#CSS样式-1" class="headerlink" title="CSS样式"></a>CSS样式</h3><div class="highlight-container" data-rel="Html"><figure class="iseeu highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">  <span class="selector-tag">h1</span> {</span></span><br><span class="line"><span class="language-css">    <span class="attribute">color</span>: <span class="number">#333</span>;</span></span><br><span class="line"><span class="language-css">  }</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">  <span class="selector-tag">p</span> {</span></span><br><span class="line"><span class="language-css">    <span class="attribute">text-indent</span>: <span class="number">2em</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">font-size</span>: <span class="number">14px</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">color</span>: <span class="number">#444</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">line-height</span>: <span class="number">30px</span>;</span></span><br><span class="line"><span class="language-css">  }</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">  <span class="selector-tag">a</span> {</span></span><br><span class="line"><span class="language-css">    <span class="attribute">color</span>: <span class="number">#0069c2</span>;</span></span><br><span class="line"><span class="language-css">  }</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">  <span class="selector-tag">li</span> {</span></span><br><span class="line"><span class="language-css">    <span class="attribute">font-size</span>: <span class="number">14px</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">color</span>: <span class="number">#444</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">line-height</span>: <span class="number">30px</span>;</span></span><br><span class="line"><span class="language-css">  }</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+
+  <div class="note-large blue">
+    <div class="notel-title rounded-t-lg p-3 font-bold text-lg flex flex-row gap-2 items-center">
+      <p>视频地址</p>
+
+    </div>
+    <div class="notel-content">
+      <p><a class="link" target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1kM4y127Li?p=29&amp;vd_source=f6750243303df70ef9861eee3a2e11e8">视频地址 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+
+    </div>
+  </div>
+        </div>
+
+        
+            <div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li><strong>标题:</strong> html+css学习笔记 Day03-CSS基础</li>
+        <li><strong>作者:</strong> M13c</li>
+        <li><strong>创建于
+                :</strong> 2024-03-17 22:36:34</li>
+        
+            <li>
+                <strong>更新于
+                    :</strong> 2024-03-17 23:03:00
+            </li>
+        
+        <li>
+            <strong>链接:</strong> https://m13c.top/Web/css_note01.html
+        </li>
+        <li>
+            <strong>
+                版权声明:
+            </strong>
+            
+
+            
+                版权所有 &#169 M13c，禁止转载。
+            
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="/tags/CSS/">#CSS</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+
+        
+            <div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+                
+                
+                    <div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+                        <a class="next"
+                        rel="next"
+                        href="/Cyberspace-Security/basic_dos&amp;bat&amp;user"
+                        >
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">网络安全基础知识-dos命令&amp;批处理&amp;用户组</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+
+        
+    </div>
+
+    
+        <div class="toc-content-container">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div class="toc-title">此页目录</div>
+        <div class="page-title">html+css学习笔记 Day03-CSS基础</div>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#01-CSS%E5%88%9D%E4%BD%93%E9%AA%8C"><span class="nav-text">01-CSS初体验</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#02-CSS%E5%BC%95%E5%85%A5%E6%96%B9%E5%BC%8F"><span class="nav-text">02-CSS引入方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#03-%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-text">03-选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%87%E7%AD%BE%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-text">标签选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B1%BB%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-text">类选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#id%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-text">id选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%9A%E9%85%8D%E7%AC%A6%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-text">通配符选择器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#04-%E7%9B%92%E5%AD%90%E5%B0%BA%E5%AF%B8%E5%92%8C%E8%83%8C%E6%99%AF%E8%89%B2"><span class="nav-text">04-盒子尺寸和背景色</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#05-%E6%96%87%E5%AD%97%E6%8E%A7%E5%88%B6%E5%B1%9E%E6%80%A7"><span class="nav-text">05-文字控制属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E4%BD%93%E5%A4%A7%E5%B0%8F"><span class="nav-text">字体大小</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E4%BD%93%E6%A0%B7%E5%BC%8F%EF%BC%88%E6%98%AF%E5%90%A6%E5%80%BE%E6%96%9C%EF%BC%89"><span class="nav-text">字体样式（是否倾斜）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%8C%E9%AB%98"><span class="nav-text">行高</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E4%BD%93%E6%97%8F"><span class="nav-text">字体族</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#font%E5%A4%8D%E5%90%88%E5%B1%9E%E6%80%A7"><span class="nav-text">font复合属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E6%9C%AC%E7%BC%A9%E8%BF%9B"><span class="nav-text">文本缩进</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E6%9C%AC%E5%AF%B9%E9%BD%90%E6%96%B9%E5%BC%8F"><span class="nav-text">文本对齐方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E6%9C%AC%E4%BF%AE%E9%A5%B0%E7%BA%BF"><span class="nav-text">文本修饰线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#color-%E6%96%87%E5%AD%97%E9%A2%9C%E8%89%B2"><span class="nav-text">color 文字颜色</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#06-%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7"><span class="nav-text">06-调试工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#07-%E7%BB%BC%E5%90%88%E6%A1%88%E4%BE%8B%E4%B8%80-%E6%96%B0%E9%97%BB%E8%AF%A6%E6%83%85"><span class="nav-text">07-综合案例一-新闻详情</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML%E6%A0%87%E7%AD%BE"><span class="nav-text">HTML标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS%E6%A0%B7%E5%BC%8F"><span class="nav-text">CSS样式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#08-%E7%BB%BC%E5%90%88%E6%A1%88%E4%BE%8B%E4%BA%8C-CSS%E7%AE%80%E4%BB%8B"><span class="nav-text">08-综合案例二-CSS简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML%E6%A0%87%E7%AD%BE-1"><span class="nav-text">HTML标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS%E6%A0%B7%E5%BC%8F-1"><span class="nav-text">CSS样式</span></a></li></ol></li></ol>
+
+    </div>
+</div>
+        </div>
+    
+</div>
+
+
+
+                
+
+            </div>
+
+            
+
+        </div>
+
+        <div class="main-content-footer">
+            <footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2024</span>
+              -
+            
+            2024&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">M13c</a>
+            
+                
+                <p class="post-count space-x-0.5">
+                    <span>
+                        共 7 篇文章
+                    </span>
+                    
+                </p>
+            
+        </div>
+        
+            <script data-swup-reload-script src="https://cn.vercount.one/js"></script>
+            <div class="relative text-center lg:absolute lg:right-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-right">
+                
+                    <span id="busuanzi_container_site_uv" class="lg:!block">
+                        <span class="text-sm">访问人数</span>
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="lg:!block">
+                        <span class="text-sm">总访问量</span>
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">由 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a> 驱动</span>
+            <span class="text-sm lg:block">主题&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.6.1</a></span>
+        </div>
+        
+        
+            <div>
+                博客已运行 <span class="odometer" id="runtime_days" ></span> 天 <span class="odometer" id="runtime_hours"></span> 小时 <span class="odometer" id="runtime_minutes"></span> 分钟 <span class="odometer" id="runtime_seconds"></span> 秒
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+        
+    </div>  
+</footer>
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="article-tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="right-bottom-tools page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-side-tools-container">
+        <div class="side-tools-container">
+    <ul class="hidden-tools-list">
+        <li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+            <i class="fa-regular fa-magnifying-glass-plus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+            <i class="fa-regular fa-magnifying-glass-minus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+            <i class="fa-regular fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+            <i class="fa-regular fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="visible-tools-list">
+        <li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+            <i class="fa-regular fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+        
+            <li class="right-bottom-tools tool-aplayer flex justify-center items-center">
+
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+    
+<script src="/js/libs/Swup.min.js"></script>
+
+<script src="/js/libs/SwupSlideTheme.min.js"></script>
+
+<script src="/js/libs/SwupScriptsPlugin.min.js"></script>
+
+<script src="/js/libs/SwupProgressPlugin.min.js"></script>
+
+<script src="/js/libs/SwupScrollPlugin.min.js"></script>
+
+<script src="/js/libs/SwupPreloadPlugin.min.js"></script>
+
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+
+
+
+
+<script src="/js/tools/imageViewer.js" type="module"></script>
+
+<script src="/js/utils.js" type="module"></script>
+
+<script src="/js/main.js" type="module"></script>
+
+<script src="/js/layouts/navbarShrink.js" type="module"></script>
+
+<script src="/js/tools/scrollTopBottom.js" type="module"></script>
+
+<script src="/js/tools/lightDarkSwitch.js" type="module"></script>
+
+<script src="/js/layouts/categoryList.js" type="module"></script>
+
+
+
+
+
+    
+<script src="/js/tools/codeBlock.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/layouts/lazyload.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/tools/runtime.js"></script>
+
+    
+<script src="/js/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+  
+<script src="/js/libs/Typed.min.js"></script>
+
+  
+<script src="/js/plugins/typed.js" type="module"></script>
+
+
+
+
+
+
+
+
+
+<div class="post-scripts" data-swup-reload-script>
+    
+        
+<script src="/js/tools/tocToggle.js" type="module"></script>
+
+<script src="/js/layouts/toc.js" type="module"></script>
+
+<script src="/js/plugins/tabs.js" type="module"></script>
+
+    
+</div>
+
+
+    <div id="aplayer"></div>
+
+<script src="/js/libs/APlayer.min.js"></script>
+
+
+<script src="/js/plugins/aplayer.js"></script>
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="//cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+</body>
+</html>
