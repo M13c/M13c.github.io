@@ -15,7 +15,7 @@ info:
   # Author name
   author: M13c
   # Site URL
-  url: https://m13c.github.io
+  url: https://m13c.top
 # BASIC INFORMATION <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end
 
 
@@ -298,7 +298,7 @@ articles:
     init_open: false # Open toc by default
   # Whether to enable copyright notice
   copyright:
-    enable: false # Whether to enable
+    enable: ture # Whether to enable
     default: all_rights_reserved # Default license, can be cc_by_nc_sa, cc_by_nd, cc_by_nc, cc_by_sa, cc_by, all_rights_reserved, public_domain
   # Whether to enable lazyload for images
   lazyload: true
@@ -413,7 +413,7 @@ plugins:
     audios:
       - name: Things You Said # audio name
         artist: Cody Fry # audio artist
-        url: https://m701.music.126.net/20240317004451/cb0d36053deb64c2808a54b44c071795/jdyyaac/obj/w5rDlsOJwrLDjj7CmsOj/30417275872/0393/d4d6/a579/226afb0db5b39402e695a7a37e0618d9.m4a # audio url
+        url: /music/Things you said.mp3 # audio url
         cover: https://p1.music.126.net/Q9OkD_MsN63DXdP86fiB4w==/109951168753316527.jpg?param=34y34 # audio cover
 #      - name: # audio name
 #        artist: # audio artist
@@ -458,6 +458,6 @@ developer:
   enable: false
 # DEVELOPER MODE <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end
 
-mathjax:
-  enable: true
-  per_page: true
+# mathjax:
+#   enable: true
+#   per_page: true

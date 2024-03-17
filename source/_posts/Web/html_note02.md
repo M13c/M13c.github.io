@@ -1,5 +1,5 @@
 ---
-title: html学习笔记 Day02：列表、表格、表单
+title: html+css学习笔记 Day02：列表、表格、表单
 tags: [html]
 mathjax: true
 date: 2024-03-16 22:23:11

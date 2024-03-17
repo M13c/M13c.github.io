@@ -1,16 +1,14 @@
 ---
-title: 网络安全基础知识
+title: 网络安全基础知识-IP地址
 tags: ["IP"]
 mathjax: true
 date: 2024-03-16 22:50:33
 categories: Cyberspace_Security
-excerpt: b站千峰课程笔记
+excerpt: b站千峰课程笔记day02
 ---
 
-## IP地址详解
-
 ### 一、简单局域网的构成
-{%asset_img 1.png %}
+{% asset_img 1.png %}
 >局域网：一般称为内网
 >
 >简单局域网构成：交换机、网线、PC（终端）
@@ -66,6 +64,62 @@ X.X.X.X 0-255
 网关：一个网络的出口，Gateway=GW，一般网关是在路由器上
 
 路由器：可用于连接内外网的设备。
+
+{% notel 注意%}
+对于交换机来说，网关也是一个设备，即网关也有IP地址，一般是第一个IP，或者最后一个
+{% endnotel %}
+
+### 六、DNS
+
+**DNS：Domain Name Service** 域名服务
+
+{% asset_img 2.png %}
+1. 
+
+    + 作用：提供域名解析服务。
+    + 域名解析顺序：本地DNS缓存—本地hosts解析文件—DNS域名解析服务器
+
+2. 通用DNS服务器：
+
+    114.114.114.114（中国 ）或者8.8.8.8（美国谷歌）
+
+
+### 七、实验：两台主机相互ping通信
+
+>设置电脑适配器在net1同一网关
+>
+>winxp-1 ip:10.1.1.1 子网掩码：255.255.255.0
+>
+>win2003-1 ip:10.1.1.1 子网掩码：255.255.255.0
+>
+>操作：cmd—ping 10.1.1.2 子网内相互通信
+
+### 八、网络测试命令
+
+1. 查看IP
+
+>ipconfig        #IP、子网掩码、网关
+>
+>ipconfig /all   #查看详细信息，DNS IP
+
+2. 测试网络速度
+
+>ping 目标IP               #测试网络
+>
+>ping -t 目标IP            #一直ping
+>
+>ping -n 数字 目标IP         #修改ping包数量
+>
+>ping -l 数字 目标IP         #修改ping包的大小，默认32字节
+
+{% notel 注意%}
+ping不通，可能对方不在线，或者开着防火墙
+{% endnotel %}
+
+3. 手工解析域名
+
+> nslookup baidu.com(域名)  #手工解析域名IP
+
 
 {% notel blue 视频地址 %}
 [视频地址](https://www.bilibili.com/video/BV1Lf4y1t7Mc/?p=8&vd_source=f6750243303df70ef9861eee3a2e11e8)

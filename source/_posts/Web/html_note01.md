@@ -1,12 +1,11 @@
 ---
-title: html学习笔记 Day01：HTML 基础
+title: html+css学习笔记 Day01：HTML基础
 tags: [html]
 mathjax: true
 date: 2024-03-16 21:41:02
 categories: Web
 excerpt: b站黑马程序员html+css Day01课程笔记
 ---
-
 
 > 目标：掌握标签基本语法，能够独立布局文章页。
 
@@ -157,8 +156,8 @@ HTML 超文本标记语言——HyperText Markup Language。
 作用：为文本添加特殊格式，以突出重点。常见的文本格式：加粗、倾斜、下划线、删除线等。 
 
 {% asset_img 1680314078647.png %}
-
-> 提示：strong、em、ins、del 标签自带强调含义（语义）。 
+ 
+>提示：strong、em、ins、del 标签自带强调含义（语义）。 
 
 ## 10-图像标签
 
