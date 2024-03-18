@@ -1,10 +1,10 @@
 ---
-title: 网络安全基础知识-dos命令&批处理&用户组
-tags: [dos命令, 批处理, 用户组]
+title: 网络安全基础知识-dos命令&批处理
+tags: [dos命令, 批处理]
 mathjax: true
 date: 2024-03-17 13:51:23
 categories: Cyberspace_Security
-excerpt: b站千峰课程笔记day03
+excerpt: b站千峰课程笔记 Day03
 ---
 
 ## 基本DOS命令
@@ -189,6 +189,116 @@ win+r—cmd—回车—打开DOS窗口
 4. 修改关联：
 >assoc .txt=exefile   #解绑：assoc .txt=txtfile
 
-{% notel blue 视频地址 %}
-[视频地址](https://www.bilibili.com/video/BV1Lf4y1t7Mc?p=13&vd_source=f6750243303df70ef9861eee3a2e11e8)
+
+## 批处理文件
+
++ 批处理基本用法
+```bat
+(1) @echo off：关闭回显功能，屏蔽过程，一般放在批处理首行
+(2) pause：暂停批处理运行
+(3) title：为批处理脚本设置标题
+(4) echo. ：执行批处理脚本时空一行
+(5) set ：设置变量，DOS中互动赋值
+(6) :标签名 定义标签名
+(7) goto 实现跳转
+```
++ 案例：
+```bat
+@echo off
+set /p time=请输入定时关机时间（单位：秒）：
+shutdown -s -f -t %time%
+echo 定时关机已设置，谢谢使用！
+pause
+```
++ 案例1：清理垃圾文件
+```bat
+@echo off 
+color 0a
+title My Laji Clear Code
+echo =============================
+echo  This is a laji clear code
+echo =============================
+pause
+echo.
+​
+echo laji is clearing...
+d:  >nul 2>nul
+cd \ >nul 2>nul
+rd . /s/q  >nul 2>nul
+​
+ping -n 10 127.0.0.1 >nul 2>nul
+echo congratulations!!! laji clear over!
+pause
+```
++ 案例2：快速生成大文件
+```bat
+d:
+cd \
+fsutil file createnew d:\sys.ini 2048000000
+fsutil file createnew d:\sys1.ini 2048000000
+fsutil file createnew d:\sys2.ini 2048000000
+fsutil file createnew d:\sys3.ini 2048000000
+fsutil file createnew d:\sys4.ini 2048000000
+fsutil file createnew d:\sys5.ini 2048000000
+```
++ 案例3：定时关机
+```bat
+@echo off
+title 小程序v1.0
+color 0a
+:menu
+cls
+echo ==========================
+echo       菜单
+echo    1. 定时关机
+echo     2. 取消定时
+echo        3. 退出   
+echo ==========================
+​
+set /p num=您的选择：
+if "%num%"=="1" goto 1
+if "%num%"=="2" goto 2
+if "%num%"=="3" goto 3
+echo 请选择123中的一个！
+pause
+goto menu
+​
+:1
+set /p a=请输入时间（单位/秒）：
+shutdown -s -f -t %a%
+goto menu 
+​
+:2
+shutdown -a
+goto menu 
+​
+:3
+exit
+```
+
++ 案例4：
+```bat 无限cmd
+:d
+start #默认启动cmd
+goto d
+```
+
++ 案例5： 强制杀死指定进程（针对xp和2003的蓝屏命令）
+```bat 蓝屏
+ntsd -c q -pn winlogon.exe #winlogon.exe是Windows登录进程
+```
+
++ 案例6：关闭桌面 强制杀死指定进程
+```bat
+@echo off
+taskkill /im explorer.exe /f  >nul 2>nul
+echo 哈哈哈，你的桌面呢?
+ping -n 5 127.0.0.1 >nul 2>nul
+start c:\windows\explorer.exe
+echo 吼吼吼，开个玩笑！
+pause
+```
+
+{% notel blue 视频链接%}
+[视频链接](https://www.bilibili.com/video/BV1Lf4y1t7Mc?p=13&vd_source=f6750243303df70ef9861eee3a2e11e8)
 {% endnotel %}

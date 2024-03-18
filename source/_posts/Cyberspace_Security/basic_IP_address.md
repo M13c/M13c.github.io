@@ -4,7 +4,7 @@ tags: ["IP"]
 mathjax: true
 date: 2024-03-16 22:50:33
 categories: Cyberspace_Security
-excerpt: b站千峰课程笔记day02
+excerpt: b站千峰课程笔记 Day02
 ---
 
 ### 一、简单局域网的构成
