@@ -33,8 +33,19 @@
 <meta property="og:image" content="http://m13c.top/Computer-Science/OS/6.png">
 <meta property="og:image" content="http://m13c.top/Computer-Science/OS/7.png">
 <meta property="og:image" content="http://m13c.top/Computer-Science/OS/8.png">
+<meta property="og:image" content="http://m13c.top/Computer-Science/OS/9.png">
+<meta property="og:image" content="http://m13c.top/Computer-Science/OS/10.png">
+<meta property="og:image" content="http://m13c.top/Computer-Science/OS/11.png">
+<meta property="og:image" content="http://m13c.top/Computer-Science/OS/12.png">
+<meta property="og:image" content="http://m13c.top/Computer-Science/OS/13.png">
+<meta property="og:image" content="http://m13c.top/Computer-Science/OS/14.png">
+<meta property="og:image" content="http://m13c.top/Computer-Science/OS/15.png">
+<meta property="og:image" content="http://m13c.top/Computer-Science/OS/16.png">
+<meta property="og:image" content="http://m13c.top/Computer-Science/OS/17.png">
+<meta property="og:image" content="http://m13c.top/Computer-Science/OS/18.png">
+<meta property="og:image" content="http://m13c.top/Computer-Science/OS/19.png">
 <meta property="article:published_time" content="2024-03-15T13:46:17.000Z">
-<meta property="article:modified_time" content="2024-03-16T14:03:19.332Z">
+<meta property="article:modified_time" content="2024-03-18T10:33:11.445Z">
 <meta property="article:author" content="M13c">
 <meta property="article:tag" content="操作系统">
 <meta name="twitter:card" content="summary">
@@ -519,7 +530,7 @@ mjx-container[display="true"] + br {
         <div class="label text-third-text-color text-sm">分类</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">7</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">8</div>
         <div class="label text-third-text-color text-sm">文章</div>
     </a>
 </div>
@@ -571,8 +582,8 @@ mjx-container[display="true"] + br {
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2024-03-16 22:03:19</span>
-            <span class="mobile">2024-03-16 22:03:19</span>
+            <span class="desktop">2024-03-18 18:33:11</span>
+            <span class="mobile">2024-03-18 18:33:11</span>
             <span class="hover-info">更新</span>
         </span>
     
@@ -626,37 +637,17 @@ mjx-container[display="true"] + br {
 
 
         <div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
-            <h1 id="Processes"><a href="#Processes" class="headerlink" title="Processes"></a>Processes</h1><ul>
-<li>内存排布</li>
-</ul>
-<img lazyload="" src="/images/loading.svg" data-src="/Computer-Science/OS/1.png" class="">
-<ul>
-<li>进程的状态 (State)</li>
-</ul>
-<img lazyload="" src="/images/loading.svg" data-src="/Computer-Science/OS/2.png" class="">
-<ul>
-<li>进程控制器 (Process Control Block, PCB)</li>
-</ul>
-<img lazyload="" src="/images/loading.svg" data-src="/Computer-Science/OS/3.png" class="">
-<ul>
-<li>进程调度器 (Process Scheduler)</li>
-</ul>
-<img lazyload="" src="/images/loading.svg" data-src="/Computer-Science/OS/4.png" class="">
-<ul>
-<li>上下文切换 (context switch)</li>
-</ul>
-<p>进程停止时要保存something到PCB中，继续进行要恢复</p>
-<p>something有PC，寄存器…</p>
+            <h2 id="Processes"><a href="#Processes" class="headerlink" title="Processes"></a>Processes</h2><h3 id="内存排布"><a href="#内存排布" class="headerlink" title="内存排布"></a>内存排布</h3><img lazyload="" src="/images/loading.svg" data-src="/Computer-Science/OS/1.png" class="">
+<h3 id="进程的状态-State"><a href="#进程的状态-State" class="headerlink" title="进程的状态 (State)"></a>进程的状态 (State)</h3><img lazyload="" src="/images/loading.svg" data-src="/Computer-Science/OS/2.png" class="">
+<h3 id="进程控制器-Process-Control-Block-PCB"><a href="#进程控制器-Process-Control-Block-PCB" class="headerlink" title="进程控制器 (Process Control Block, PCB)"></a>进程控制器 (Process Control Block, PCB)</h3><img lazyload="" src="/images/loading.svg" data-src="/Computer-Science/OS/3.png" class="">
+<h3 id="进程调度器-Process-Scheduler"><a href="#进程调度器-Process-Scheduler" class="headerlink" title="进程调度器 (Process Scheduler)"></a>进程调度器 (Process Scheduler)</h3><img lazyload="" src="/images/loading.svg" data-src="/Computer-Science/OS/4.png" class="">
+<h3 id="上下文切换-context-switch"><a href="#上下文切换-context-switch" class="headerlink" title="上下文切换 (context switch)"></a>上下文切换 (context switch)</h3><p>进程停止时要保存something到PCB中，继续进行要恢复</p>
+<p>something有PC，寄存器,stack…</p>
 <p>继续进行时要把PCB中的something恢复到内存中</p>
 <p>一次上下文切换大约几十微秒，占用时间片时间千分之几</p>
 <img lazyload="" src="/images/loading.svg" data-src="/Computer-Science/OS/5.png" class="">
-<ul>
-<li>挂起 (suspended)</li>
-</ul>
-<p>与ready和wating的进程相比，挂起的进程的资源可能会被回收，存储在内存的东西被写到磁盘</p>
-<ul>
-<li><p>进程操作</p>
-<ol>
+<h3 id="挂起-suspended"><a href="#挂起-suspended" class="headerlink" title="挂起 (suspended)"></a>挂起 (suspended)</h3><p>与ready和wating的进程相比，挂起的进程的资源可能会被回收，存储在内存的东西被写到磁盘</p>
+<h3 id="进程操作"><a href="#进程操作" class="headerlink" title="进程操作"></a>进程操作</h3><ol>
 <li><p>创建进程 (Process Creation)<br>fork() 会新建一个子进程，并用父进程初始化子进程</p>
 <img lazyload="" src="/images/loading.svg" data-src="/Computer-Science/OS/6.png" class="">
 </li>
@@ -669,13 +660,39 @@ mjx-container[display="true"] + br {
 <p> SIGKILL=9 直接终止 kill -9 pid</p>
 </li>
 </ol>
+<h3 id="进程通信-Interprocess-Communication"><a href="#进程通信-Interprocess-Communication" class="headerlink" title="进程通信(Interprocess Communication)"></a>进程通信(Interprocess Communication)</h3><img lazyload="" src="/images/loading.svg" data-src="/Computer-Science/OS/7.png" class="">
+<p>消息传递: blocking(阻塞，同步),non-blocking(非阻塞,异步)</p>
+<h2 id="Threads"><a href="#Threads" class="headerlink" title="Threads"></a>Threads</h2><img lazyload="" src="/images/loading.svg" data-src="/Computer-Science/OS/8.png" class="">
+<p>进程是资源分配管理的最小单位，线程是调度的最小单位</p>
+<h3 id="多核编程"><a href="#多核编程" class="headerlink" title="多核编程"></a>多核编程</h3><img lazyload="" src="/images/loading.svg" data-src="/Computer-Science/OS/9.png" class="">
+<h3 id="用户线程和内核线程"><a href="#用户线程和内核线程" class="headerlink" title="用户线程和内核线程"></a>用户线程和内核线程</h3><ul>
+<li><p>内核线程可以被抢占，用户线程不可以，用户进程主动释放CPU</p>
 </li>
-<li><p>进程通信(Interprocess Communication)</p>
+<li><p>多对一</p>
+<p>  绑定在同一内核线程的用户进程交替进行，因为只占用一个CPU核<br>  用户线程切换不需要内核参与，速度更快</p>
+  <img lazyload="" src="/images/loading.svg" data-src="/Computer-Science/OS/10.png" class="">
 </li>
 </ul>
-<img lazyload="" src="/images/loading.svg" data-src="/Computer-Science/OS/7.png" class="">
-<p>消息传递: blocking(阻塞，同步),non-blocking(非阻塞,异步)</p>
-<h1 id="Threads"><a href="#Threads" class="headerlink" title="Threads"></a>Threads</h1><img lazyload="" src="/images/loading.svg" data-src="/Computer-Science/OS/8.png" class="">
+<h3 id="进程创建和销毁-Pthreads"><a href="#进程创建和销毁-Pthreads" class="headerlink" title="进程创建和销毁(Pthreads)"></a>进程创建和销毁(Pthreads)</h3><img lazyload="" src="/images/loading.svg" data-src="/Computer-Science/OS/11.png" class="">
+<img lazyload="" src="/images/loading.svg" data-src="/Computer-Science/OS/12.png" class="">
+<h3 id="线程池-Thread-Pools"><a href="#线程池-Thread-Pools" class="headerlink" title="线程池(Thread Pools)"></a>线程池(Thread Pools)</h3><p>在进程创建的时候，就创建一堆线程，让他们在获取任务的地方阻塞，当来一个任务，就从线程池中取出一个线程，完成这个任务之后，线程在放回线程池</p>
+<img lazyload="" src="/images/loading.svg" data-src="/Computer-Science/OS/13.png" class="">
+<h3 id="线程的问题"><a href="#线程的问题" class="headerlink" title="线程的问题"></a>线程的问题</h3><img lazyload="" src="/images/loading.svg" data-src="/Computer-Science/OS/14.png" class="">
+<h2 id="CPU调度"><a href="#CPU调度" class="headerlink" title="CPU调度"></a>CPU调度</h2><h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><img lazyload="" src="/images/loading.svg" data-src="/Computer-Science/OS/15.png" class="">
+<p>CPU密集型和IO密集型程序</p>
+<img lazyload="" src="/images/loading.svg" data-src="/Computer-Science/OS/16.png" class="">
+<p>CPU burst一般很短</p>
+<h3 id="CPU调度器"><a href="#CPU调度器" class="headerlink" title="CPU调度器"></a>CPU调度器</h3><p>在上下文切换时发挥作用</p>
+<img lazyload="" src="/images/loading.svg" data-src="/Computer-Science/OS/17.png" class="">
+<h3 id="调度算法"><a href="#调度算法" class="headerlink" title="调度算法"></a>调度算法</h3><ul>
+<li><p>目标</p>
+<img lazyload="" src="/images/loading.svg" data-src="/Computer-Science/OS/18.png" class="">
+</li>
+<li><p>先到先服务(FCFS) </p>
+<img lazyload="" src="/images/loading.svg" data-src="/Computer-Science/OS/19.png" class="">
+</li>
+</ul>
+
         </div>
 
         
@@ -689,7 +706,7 @@ mjx-container[display="true"] + br {
         
             <li>
                 <strong>更新于
-                    :</strong> 2024-03-16 22:03:19
+                    :</strong> 2024-03-18 18:33:11
             </li>
         
         <li>
@@ -770,7 +787,7 @@ mjx-container[display="true"] + br {
     <div class="post-toc">
         <div class="toc-title">此页目录</div>
         <div class="page-title">操作系统笔记</div>
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Processes"><span class="nav-text">Processes</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Threads"><span class="nav-text">Threads</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Processes"><span class="nav-text">Processes</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E6%8E%92%E5%B8%83"><span class="nav-text">内存排布</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E7%9A%84%E7%8A%B6%E6%80%81-State"><span class="nav-text">进程的状态 (State)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E6%8E%A7%E5%88%B6%E5%99%A8-Process-Control-Block-PCB"><span class="nav-text">进程控制器 (Process Control Block, PCB)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E8%B0%83%E5%BA%A6%E5%99%A8-Process-Scheduler"><span class="nav-text">进程调度器 (Process Scheduler)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8A%E4%B8%8B%E6%96%87%E5%88%87%E6%8D%A2-context-switch"><span class="nav-text">上下文切换 (context switch)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%82%E8%B5%B7-suspended"><span class="nav-text">挂起 (suspended)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E6%93%8D%E4%BD%9C"><span class="nav-text">进程操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E9%80%9A%E4%BF%A1-Interprocess-Communication"><span class="nav-text">进程通信(Interprocess Communication)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Threads"><span class="nav-text">Threads</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E6%A0%B8%E7%BC%96%E7%A8%8B"><span class="nav-text">多核编程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%86%85%E6%A0%B8%E7%BA%BF%E7%A8%8B"><span class="nav-text">用户线程和内核线程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E5%88%9B%E5%BB%BA%E5%92%8C%E9%94%80%E6%AF%81-Pthreads"><span class="nav-text">进程创建和销毁(Pthreads)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E6%B1%A0-Thread-Pools"><span class="nav-text">线程池(Thread Pools)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-text">线程的问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CPU%E8%B0%83%E5%BA%A6"><span class="nav-text">CPU调度</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CPU%E8%B0%83%E5%BA%A6%E5%99%A8"><span class="nav-text">CPU调度器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95"><span class="nav-text">调度算法</span></a></li></ol></li></ol>
 
     </div>
 </div>
@@ -803,7 +820,7 @@ mjx-container[display="true"] + br {
                 
                 <p class="post-count space-x-0.5">
                     <span>
-                        共 7 篇文章
+                        共 8 篇文章
                     </span>
                     
                 </p>
