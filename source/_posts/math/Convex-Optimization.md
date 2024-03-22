@@ -146,3 +146,31 @@ mathjax: true
 
     所有的仿射函数（线性函数）是既凸又凹的$ \\ $ 反之若某个函数既凸又凹，则其为仿射函数
     
++ 性质
+
+{% asset_img 1.png %}
+
+## 一阶条件
+
+{% asset_img 2.png %}
+
+## 二阶条件
+
+{% asset_img 3.png %}
+
+## 例子
+
++ 二次函数
+
+{% asset_img 4.png %}
+
++ 常见函数
+{% asset_img 5.png %}
+
++ 有趣的函数
+
+{% asset_img 6.png %}
+
+{% asset_img 7.png %}
+
+{% asset_img 8.png %}
