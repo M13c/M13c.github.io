@@ -106,6 +106,8 @@ fork() 会新建一个子进程，并用父进程初始化子进程
 
 ### 基本概念
 
+进程的概念
+
 {% asset_img 15.png %}
 
 CPU密集型和IO密集型程序
@@ -127,3 +129,92 @@ CPU burst一般很短
 
 + 先到先服务(FCFS) 
 {% asset_img 19.png %}
+
++ 最短作业调度(Shortest-Job-First (SJF))
+选择执行时间最短的作业
+
+{% asset_img 20.png %}
+{% asset_img 21.png %}
+shortest-remaining-time-first
+{% asset_img 23.png %}
+
+有个问题：执行时间不一定能提前知道
+可以预测这个线程的执行时间
+
+{% asset_img 22.png %}
+
++ 轮转算法
+
+时间片时间必须大于上下文切换时间
+
+时间片越小，越倾向于短执行时间的作业
+
+时间片越大，越类似于先来先服务算法
+
+{% asset_img 24.png %}
+
++ 优先级调度
+
+{% asset_img 25.png %}
+
+{% asset_img 26.png %}
+
++ 优先级调度+轮转
+
+{% asset_img 27.png %}
+
++ 多级队列
+
+{% asset_img 28.png %}
+{% asset_img 29.png %}
+
+
+### 多核调度（Multiple-Processor Scheduling）
+
+{% asset_img 30.png %}
+
++ 亲和性（Processor Affinity）
+
+让线程保持在某一个CPU核上运行
+
+## 互斥与同步
+
+### race condition
+
+并发线程对共享变量的使用引发错误
+
+### 临界区问题（Critical Section Problem）
+
++ 临界区
+
+临界区在同一时刻只允许被一个线程执行
+
+{% asset_img 31.png %}
+
++ 解决措施的要求
+{% asset_img 32.png %}
+
++ 基于中断的解决方法
+
+    Entry section:  disable interrupts 进入时禁止中断
+    Exit section:  enable  interrupts 结束时开启中断
+    
+    但是对于多核处理器来说，问题依然会有
+
++ 软件的解决（过时）
+
++ Peterson’s Solution（过时）
+
+### 同步硬件
+
++ test_and_set 指令
+
+原子型命令
+
+{% asset_img 33.png %}
+示例
+{% asset_img 34.png %}
+
++ compare_and_swap 指令
+
+{% asset_img 35.png %}
