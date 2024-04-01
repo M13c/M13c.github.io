@@ -177,7 +177,7 @@ shortest-remaining-time-first
 
 让线程保持在某一个CPU核上运行
 
-## 互斥与同步
+## 同步机制
 
 ### race condition
 
@@ -205,7 +205,7 @@ shortest-remaining-time-first
 
 + Peterson’s Solution（过时）
 
-### 同步硬件
+### 同步硬件（忙等）
 
 + test_and_set 指令
 
@@ -218,3 +218,133 @@ shortest-remaining-time-first
 + compare_and_swap 指令
 
 {% asset_img 35.png %}
+
+这俩会有不断循环，没解决内存可见性
+
+### 信号量（Semaphore）
+
++ 定义
+
+{% asset_img 36.png %}
+
++ Implementation with no Busy waiting 
+
+    {% asset_img 37.png %}
+    {% asset_img 38.png %}
+
+    大于0，代表无阻塞的调用wait的次数，被保护的这个资源可以同时被多少个进程访问
+    小于0，代表有多少的个进程阻塞在等待队列
+    
+### 管程（Monitors）
+
++ 定义
+    {% asset_img 39.png %}
+    1. 变量都为私有变量
+    2. 同一时刻只有一个线程在管程中
+    
++ 条件变量
+    {% asset_img 40.png %}
+    实际上是一个等待队列
+    
++ 带有条件变量的管程
+    {% asset_img 41.png %}
+
++ 例子
+    ```cpp
+    int count = 8;
+    condition x;
+
+    void borrow (int n) {
+        while (count < n) {
+            x.wait();
+        }
+        count -= n;
+    }
+
+    void returm (int n) {
+        count += n;
+        //x.signal();
+        x.signalAll();
+    }
+    ```
+    
+### 活性（Liveness）
+
++ 死锁
+    {% asset_img 42.png %}
+
++ 饥饿
+    {% asset_img 43.png %}
+    
+## 同步案例
+
+### 生产者-消费者问题（Bounded-Buffer Problem）
+
++ Semaphore 做法
+    ```cpp
+    Item buffer[N];
+    int in = 0, out = 0;
+    int count = 0;
+
+    Semaphore empty = N, full = 0, mutex = 1;
+
+    void put (o) {
+        empty.wait();
+        
+        mutex.wait();
+        buffer[in] = o;
+        in = (in + 1) % N;
+        count++;
+        mutex.signal();
+        
+        full.signal();
+    }
+
+    void get () {
+        full.wait();
+        
+        mutex.wait();
+        o = buffer[out];
+        out = (out + 1) % N;
+        count--;
+        mutex.signal();
+        
+        empty.signal();
+        return o;
+    }
+    ```
+    假设5个消费者，N = 6，4个消费者
+    empty 范围 [-5, 6]
+    full 范围 [-4, 6]
+    mutex 范围 [(-5), 1]
+    
++ Monitors做法
+
+    ```cpp
+    Item buffer[N];
+    int in = 0, out = 0;
+    int count = 0;
+    
+    condition notFull, notEmpty;
+    
+    put (o) {
+        while (count == N) {
+            notFull.wait();
+        }
+        buffer[in] = o;
+        in = (in + 1) % N;
+        count++;
+        notEmpty.signal();
+    }
+    
+    get () {
+        while (count == 0) {
+            notFull.wait();
+        }
+        o = buffer[out];
+        out = (out + 1) % N;
+        count--;
+        notFull.signal();
+        return o;
+    }
+    ```
