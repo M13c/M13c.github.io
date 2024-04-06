@@ -25,10 +25,10 @@ mathjax: true
     3. 仿射包（集合）
     
         $\pmb{aff}C = \{ \theta_1 x_1+\theta_2 x_2+\dots+\theta_k x_k |x_i \in C , \theta_1+\theta_2+\dots+\theta_k = 1\} $
-        
+    
 + 凸集
     1. 凸集
-        
+       
         如果集合C中两个不同的点间的线段仍在集合C中, 则称集合C是凸集
         
         等价于: 对$\forall x_1, x_2 \in C, $且$\theta \in [0, 1]$满足$\theta x_1 + (1-\theta) x_2 \in C$
@@ -45,7 +45,7 @@ mathjax: true
         对$\forall x_1, x_2 \in C, $且$\theta_1,\theta_2 \geq 0 $满足$\theta_1 x_1 + \theta_2 x_2 \in C$
         
     2. 锥组合
-        
+       
         $\theta_1 x_1+\theta_2 x_2+\dots+\theta_k x_k$，其中$\theta_i \geq 0$
         
     3. 锥包
@@ -55,15 +55,15 @@ mathjax: true
 + 示例
 
     1. 超平面（$hyperplane$）
-        
+       
         $\{ x|a^Tx=b\}, a\in R^n, a \neq 0, b\in R$ 
         
     2. 半空间（$halfspace$）
-        
+       
         $\{ x|a^Tx \leq b\},a \in R^n, a \neq 0, b\in R$ 
         
     3. 球（$Euclidean \ ball$）
-        
+       
         $B(x_c, r) = \{x|\parallel x - x_c\parallel_2 \leq r\} = \{x|(x - x_c)^T(x - x_c) \leq r^2\}$
         
         $B(x_c,r) = \{x_c + ru|\parallel u\parallel_2 \leq 1\}$
@@ -104,7 +104,7 @@ mathjax: true
 + 透视函数
 
     + 定义
-        
+      
         $P:R^{n+1} \rightarrow R^n, P(z,t) = z/t $为透视函数, $z \in R^n, t\in R_{++}$
         
         1）通过透视函数，从$n+1$降维到$n$维
@@ -113,7 +113,7 @@ mathjax: true
         
         $e.g. \ (x_1,x_2,x_3) \rightarrow (\frac{x_1}{x_3}, \frac{x_2}{x_3},1) \rightarrow (\frac{x_1}{x_3}, \frac{x_2}{x_3})$
     + 结论
-        
+      
         如果$\ C\ $为$\ \pmb{dom}P \ $内的凸集，那么它的象$\{P(C)|x \in C \}$也是凸的
         
         一个凸集在透视函数下的原象也是凸的$P^{-1}(C) = \{ (x,t) \in R^{n+1}|x/t \in C,t > 0 \}$
@@ -135,11 +135,11 @@ mathjax: true
 ## 凸函数
 
 + 定义
-    
+  
     $C$是非空凸集，$f: R^n \rightarrow R$定义在C上的函数，如果对$\forall x,y \in C, \alpha \in [0,1],$满足<br><br><center>$f(\alpha x + (1-\alpha )y) \leq af(x) + (1-\alpha)f(y)$</center><br><br>则称$f$为$C$上的凸函数
     
 + 凹函数
-    
+  
     如果$-f$为凸函数，则$f$为凹函数
     
 + 结论

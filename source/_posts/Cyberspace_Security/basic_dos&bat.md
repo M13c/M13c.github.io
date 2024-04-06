@@ -113,11 +113,11 @@ win+r—cmd—回车—打开DOS窗口
     >[root@redhat box]# cat file.err 
     >
     >结果：ls: b.txt: No such file or directory 
-
+    
     {% notel %}
     一般来说, "1>" 通常可以省略成 ">". 
     {% endnotel %}
-
+    
     示例2
     >[root@redhat box]# ls a.txt b.txt 1>file.out  2>&1  
     >
@@ -126,7 +126,7 @@ win+r—cmd—回车—打开DOS窗口
     >ls: b.txt: No such file or directory 
     >
     >a.txt 
-
+    
     现在, 正确的输出和错误的输出都定向到了file.out这个文件中, 而不显示在前端. 
 
 3. 浏览文件内容：
@@ -192,7 +192,7 @@ win+r—cmd—回车—打开DOS窗口
 
 ## 批处理文件
 
-+ 批处理基本用法
++ x Item buffer[N];int in = 0, out = 0;int count = 0;​condition notFull, notEmpty;​put (o) {    while (count == N) {        notFull.wait();    }    buffer[in] = o;    in = (in + 1) % N;    count++;    notEmpty.signal();}​get () {    while (count == 0) {        notFull.wait();    }    o = buffer[out];    out = (out + 1) % N;    count--;    notFull.signal();    return o;}cpp
 ```bat
 (1) @echo off：关闭回显功能，屏蔽过程，一般放在批处理首行
 (2) pause：暂停批处理运行
