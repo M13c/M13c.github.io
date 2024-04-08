@@ -209,17 +209,17 @@ shortest-remaining-time-first
 
 + test_and_set 指令
 
-原子型命令
+    原子型命令
 
-{% asset_img 33.png %}
-示例
-{% asset_img 34.png %}
+    {% asset_img 33.png %}
+    示例
+    {% asset_img 34.png %}
 
 + compare_and_swap 指令
 
-{% asset_img 35.png %}
+    {% asset_img 35.png %}
 
-这俩会有不断循环，没解决内存可见性
+    这俩会有不断循环，没解决内存可见性
 
 ### 信号量（Semaphore）
 
@@ -348,3 +348,112 @@ shortest-remaining-time-first
         return o;
     }
     ```
+### 读者-写者问题(Readers-Writers Problem)
+
+{% asset_img  44.png%}
+
++ Semaphore 做法
+
+    ```cpp
+    Semaphore mutex = 1, ,
+    int cnt = 0;
+
+    beginWrite() {
+        mutex.wait();
+    }
+
+    endWrite() {
+        mutex.signal();
+    }
+
+    beginRead() {
+        x.wait();
+        cnt++;
+        if (cnt == 1) {
+            mutex.wait();
+        }
+        x.signal();
+    }
+
+    endRead() {
+        x.wait();
+        cnt--;
+        if (cnt == 0) {
+            mutex.signal();
+        }
+        x.signal();
+    }
+    ```
+    这个解法对读者是优先的
+    
++ Monitors做法
+
+    ```cpp
+    condition r, w;
+    int rc = 0, wc = 0;//读写者的计数器
+
+    beginWrite() {
+        while (rc > 0 || wc > 0) {
+            w.wait();
+        }
+        wc++;
+    }
+
+    endWrite() {
+        wc--;
+        w.signal();
+        r.signalAll();//要唤醒所有读者
+    }
+
+    beginRead() {
+        while(wc > 0) {
+            r.wait();
+        }
+        rc++;
+    }
+
+    endRead() {
+        if (rc == 0) {
+            w.signal();
+        }
+    }
+    ```
+
+### 哲学家进餐问题(Dining-Philosophers Problem)
+
++ Semaphore 做法
+
+    ```cpp
+    Semaphore C[S] = {1,1,1,1,1};
+
+    P(i) {
+        C[i].wait();
+        C[(i+1) % 5].wait();
+        eat();
+        C[i].signal();
+        C[(i+1) % 5].signal();
+    } 
+    ```
+
+    死锁问题
+    
++ Monitors做法
+```cpp
+condition r[5];
+int c[S] = {1,1,1,1,1};
+
+beginEat(i) {
+    while (c[i] == 0 || c[(i + 1) % 5] == 0) {
+        r[i].wait();
+    }
+    c[i] = 0;
+    c[(i + 1) % 5] = 0;
+}
+
+endEat(i) {
+    c[i] = 1;
+    c[(i + 1) % 5] = 1;
+    r[(i + 4) % 5].signal();
+    r[(i + 1) % 5].signal();
+}
+```
