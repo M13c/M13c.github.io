@@ -350,7 +350,7 @@ shortest-remaining-time-first
     ```
 ### 读者-写者问题(Readers-Writers Problem)
 
-{% asset_img  44.png%}
+{% asset_img 44.png%}
 
 + Semaphore 做法
 
@@ -421,6 +421,9 @@ shortest-remaining-time-first
 
 ### 哲学家进餐问题(Dining-Philosophers Problem)
 
+{% asset_img 45.png%}
+
+
 + Semaphore 做法
 
     ```cpp
@@ -457,3 +460,48 @@ endEat(i) {
     r[(i + 1) % 5].signal();
 }
 ```
+
+## 死锁
+
+### 系统模型
+
+{% asset_img 46.png%}
+
++ 信号量版死锁
+
+{% asset_img 47.png%}
+
++ 资源分配图
+
+{% asset_img 48.png%}
+{% asset_img 49.png%}
+死锁一定会出现环，有环不一定有死锁
+{% asset_img 50.png%}
+{% asset_img 51.png%}
+
++ 死锁的性质
+{% asset_img 52.png%}
+
+### 死锁预防
+
+利用性质破坏死锁
+{% asset_img 53.png%}
+
+抢占和非抢占的区别，资源是否可以保存并且可以重新启用
+{% asset_img 54.png%}
+
+### 死锁避免
+
++ 安全状态
+{% asset_img 55.png%}
+
++ 银行家算法
+{% asset_img 56.png%}
+
+### 死锁检测
+
++ 单个实例资源 可以用资源分配图来检测是否有死锁
+
++ 多个实例资源
+{% asset_img 57.png%}
+

@@ -7,9 +7,9 @@ excerpt: 最优化理论课堂笔记
 mathjax: true
 ---
 
-# 凸集
+## 凸集
 
-## 仿射集和凸集
+### 仿射集和凸集
 
 + 仿射：
     1. 仿射集合
@@ -75,7 +75,7 @@ mathjax: true
         $\varepsilon = \{ x_c + Au|\parallel u\parallel_2 \leq 1\}\ \ \ A = P^{\frac{1}{2}} $
         
         
-## 保凸运算
+### 保凸运算
 
 + 交集: 凸集的交集仍为凸集
 
@@ -118,7 +118,7 @@ mathjax: true
         
         一个凸集在透视函数下的原象也是凸的$P^{-1}(C) = \{ (x,t) \in R^{n+1}|x/t \in C,t > 0 \}$
 
-## 其他
+### 其他
 
 + 超平面分离定理
 
@@ -130,47 +130,64 @@ mathjax: true
 
     假设$x_0$为集合$C$边界上一点，如果$a \neq 0 $并且对于$\forall x \in C $有$a^Tx \leq a^T x_0,$那么称超平面 $\{x|a^Tx = a^T x_0\}$为集合$C$在$x_0$处的超平面
     
-# 凸函数
-
 ## 凸函数
+
+### 基本定理和例子
 
 + 定义
   
     $C$是非空凸集，$f: R^n \rightarrow R$定义在C上的函数，如果对$\forall x,y \in C, \alpha \in [0,1],$满足<br><br><center>$f(\alpha x + (1-\alpha )y) \leq af(x) + (1-\alpha)f(y)$</center><br><br>则称$f$为$C$上的凸函数
     
-+ 凹函数
-  
-    如果$-f$为凸函数，则$f$为凹函数
+    + 凹函数
     
-+ 结论
+        如果$-f$为凸函数，则$f$为凹函数
+        
+    + 结论
 
-    所有的仿射函数（线性函数）是既凸又凹的$ \\ $ 反之若某个函数既凸又凹，则其为仿射函数
+        所有的仿射函数（线性函数）是既凸又凹的$ \\ $ 反之若某个函数既凸又凹，则其为仿射函数
     
 + 性质
 
 {% asset_img 1.png %}
 
-## 一阶条件
++ 一阶条件
 
 {% asset_img 2.png %}
 
-## 二阶条件
++ 二阶条件
 
 {% asset_img 3.png %}
 
-## 例子
++ 例子
 
-+ 二次函数
+    + 二次函数
 
-{% asset_img 4.png %}
+    {% asset_img 4.png %}
 
-+ 常见函数
-{% asset_img 5.png %}
+    + 常见函数
+    {% asset_img 5.png %}
 
-+ 有趣的函数
+    + 有趣的函数
 
-{% asset_img 6.png %}
+    {% asset_img 6.png %}
 
-{% asset_img 7.png %}
+    {% asset_img 7.png %}
 
-{% asset_img 8.png %}
+    {% asset_img 8.png %}
+
+### 保凸运算
+
++ 非负加权求和
+
+{% asset_img 9.png %}
+
++ 复合仿射映射
+
+{% asset_img 10.png %}
+
++ 逐点最大值
+
+{% asset_img 11.png %}
+
++ 函数复合
+
