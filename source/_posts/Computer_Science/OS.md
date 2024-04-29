@@ -547,3 +547,31 @@ endEat(i) {
 {% asset_img 64.png%}   
 {% asset_img 65.png%}
 
++ Translation Look-Aside Buffer （TLB）
+
+TLB是在CPU Cache中，页表在内存中
+Page-table base register (PTBR) 指向页表
+Page-table length register (PTLR) 表示页表长度
+每个进程一个页表
+
+{% asset_img 66.png%}
+
++ 内存保护
+
+{% asset_img 67.png%}
+{% asset_img 68.png%}
+
++ 多级页表
+
+{% asset_img 69.png%}
+
+### 共享内存
+
+不同的进程页表指向同一物理地址帧号
+实际会让不同进程相同页号存放该同一物理地址帧号
+
+### 分段
+
+
+
+## 虚拟内存 
