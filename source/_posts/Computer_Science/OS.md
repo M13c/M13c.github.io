@@ -572,6 +572,41 @@ Page-table length register (PTLR) 表示页表长度
 
 ### 分段
 
-
-
 ## 虚拟内存 
+
+### Demand paging （请求分页）
+
++ 有效位
+    如果有物理帧和逻辑页对应就是v，没有就是i
+    {% asset_img 70.png%}
+    
+    发生缺页的时候，操作系统接管去补页
+    {% asset_img 71.png%}
+    
++ 缺页率
+    {% asset_img 72.png%}
+    
+### 页面置换
+
++ dirty bit
+    标志该页是否被修改过
+
++ 先进先出算法
+    {% asset_img 73.png%}
+    
++ 最优算法
+    替换出最近不会使用的页，预测
+    {% asset_img 74.png%}
+    
++ Least Recently Used (LRU) Algorithm
+    替换出最近不会使用的页，过去
+    {% asset_img 75.png%}
+    局部性原理，历史总是惊人的相似  
+
+### 分配帧
+
+全局分配，局部分配
+
+### 抖动
+
+在进程没有足够的页时，缺页率会很高，发生抖动
